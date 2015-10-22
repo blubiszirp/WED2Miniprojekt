@@ -3,18 +3,25 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>lafete</title>
-		<script src="./libraries/require/require.js" data-main="./classes/main.js"></script>
 	</head>
 	<body>
-		<div data-ng-app>
+		<div data-ng-app="lafete">
 			<h2>Events</h2>
-			<p><strong>TODO</strong> implement app.</p>
+			<!--<p><strong>TODO</strong> implement app.</p>
 
 			<h3>API to use</h3>
 			<dl data-ng-init="apiRoutes = [{name:'events', url:'/api/events'}, {name:'event 1', url:'/api/events/1'}, {name:'guests of event 1', url:'/api/events/1/guests'}]">
 				<dt data-ng-repeat-start="apiRoute in apiRoutes" data-ng-bind="apiRoute.name"></dt>
 				<dd data-ng-repeat-end><a href="{{ apiRoute.url}}">{{apiRoute.url}}</a></dd>
-			</dl>
+			</dl>-->
+
+			<ul data-ng-controller="EventListController">
+				<li data-ng-repeat="event in events">
+					{{event.name}}, {{event.place}}, {{event.date | date:"dd.MM.yy"}}
+				</li>
+			</ul>
+
 		</div>
+		<script src="./libraries/require/require.js" data-main="./classes/main.js"></script>
 	<body>
 </html>

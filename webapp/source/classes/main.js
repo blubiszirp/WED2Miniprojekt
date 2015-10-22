@@ -18,5 +18,5 @@ require.config({
 });
 
 define(['frameworks/angular', 'app/modules/lafete'], function (Angular, Lafete) {
-    return Angular.bootstrap(Lafete);
+    //return Angular.bootstrap(Lafete);
 });

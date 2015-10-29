@@ -2,12 +2,12 @@
  * Created by Frank on 22.10.2015.
  */
 
-define(['app/models/event'], function(Event) {
+define([], function(Event) {
     'use strict';
 
     var EventListController = function($scope, storageService) {
         this.scope = $scope;
-        this.scope.events = storageService.events
+        this.scope.events = storageService.events;
         /*var event1 = new Event(
             'Lunch',
             null,

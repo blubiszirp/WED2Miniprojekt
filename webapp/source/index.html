@@ -5,7 +5,8 @@
 		<title>lafete</title>
 	</head>
 	<body>
-		<div data-ng-app="lafete">
+		<!--<div data-ng-app="lafete">-->
+		<div>
 			<h2>Events</h2>
 			<!--<p><strong>TODO</strong> implement app.</p>
 
@@ -17,7 +18,7 @@
 
 			<ul data-ng-controller="EventListController">
 				<li data-ng-repeat="event in events">
-					{{event.name}}, {{event.place}}, {{event.date | date:"dd.MM.yy"}}
+					{{event.name}}, {{event.location.city}}, {{event.begin | date:"dd.MM.yy"}}, {{event.end | date:"dd.MM.yy"}}
 				</li>
 			</ul>
 

@@ -1,14 +1,11 @@
 /**
- * Created by Frank on 22.10.2015.
+ * Created by Frank on 29.10.2015.
  */
-
 define(['app/models/event'], function(Event) {
     'use strict';
 
-    var EventListController = function($scope, storageService) {
-        this.scope = $scope;
-        this.scope.events = storageService.events
-        /*var event1 = new Event(
+    var StorageService = function() {
+        var event1 = new Event(
             'Lunch',
             null,
             null,
@@ -50,19 +47,13 @@ define(['app/models/event'], function(Event) {
             },
             null
         )
-
-        this.scope = $scope;
-        this.scope.events = [
+        this.events = [
+            // ...
             event1,
             event2,
             event3
         ];
-        this.scope.events = [
-            { name: 'Lunch', place: 'Rapperswil', date: new Date('2015-10-10T10:00:00.000Z') },
-            { name: 'Dinner', place: 'Zürich', date: new Date('2015-04-05T16:00:00.000Z') },
-            { name: 'Dinner', place: 'Rapperswil', date: new Date('2015-12-08T17:00:00.000Z') }
-        ];*/
-    }
+    };
 
-    return EventListController;
+    return StorageService;
 });

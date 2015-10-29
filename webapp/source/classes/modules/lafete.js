@@ -2,9 +2,9 @@
  * Created by Frank on 22.10.2015.
  */
 
-define(['frameworks/angular', 'app/controllers/eventListController', 'app/services/storageService'], function (Angular, EventListController, StorageService) {
+define(['frameworks/angular', 'app/controllers/eventListController', 'app/services/storageService', 'libraries/angularRoute'], function (Angular, EventListController, StorageService) {
     'use strict';
-    var Lafete = Angular.module('lafete', []);
+    var Lafete = Angular.module('lafete', ['ngRoute']);
 
     /* services */
     Lafete.service('StorageService', StorageService);

@@ -7,7 +7,7 @@ require.config({
     baseUrl: './',
     paths: {
         'frameworks/angular': 'frameworks/angular/angular.min',
-        'libraries/angularRoute': 'libraries/angular/angular-route',
+        'libraries/angularRoute': 'libraries/angular/angular-route.min',
         'app': 'classes'
     },
     // angular does not support async loading out of the box -> use the shim loader

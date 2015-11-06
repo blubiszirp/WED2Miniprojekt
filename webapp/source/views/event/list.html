@@ -1,0 +1,5 @@
+<h2>Events</h2>
+
+<li data-ng-repeat="event in events.all()">
+   <a href="#/events/{{ event.id }}">{{event.name}}</a> in {{event.location.city}} from {{event.begin | date:"dd.MM.yy"}} until {{event.end | date:"dd.MM.yy"}}
+</li>

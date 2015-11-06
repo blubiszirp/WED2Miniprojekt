@@ -1,13 +1,10 @@
-/**
- * Created by Frank on 22.10.2015.
- */
-
-define(['frameworks/angular', 'app/controllers/eventListController', 'app/services/storageService', 'libraries/angularRoute'], function (Angular, EventListController, StorageService) {
+define(['frameworks/angular', 'app/controllers/eventListController', 'app/services/storageService', 'app/services/eventFactory', 'libraries/angularRoute'], function (Angular, EventListController, StorageService, EventFactory) {
     'use strict';
     var Lafete = Angular.module('lafete', ['ngRoute']);
 
     /* services */
     Lafete.service('StorageService', StorageService);
+    Lafete.factory('EventFactory', EventFactory);
 
     /* controllers */
     Lafete.controller('EventListController', EventListController);

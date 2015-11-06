@@ -1,7 +1,4 @@
-/**
- * Created by Frank on 29.10.2015.
- */
-define(['app/models/event'], function (Event) {
+define(['app/models/event', 'app/services/eventFactory'], function (Event, EventFactory) {
     'use strict';
 
     describe('Event test suite', function() {
@@ -9,21 +6,14 @@ define(['app/models/event'], function (Event) {
 
         // setup
         beforeEach(function() {
-            event = new Event(
-                'Dota',
-                'playing Dota2 together',
-                'Dota2-players',
-                'snacks',
-                {
-                    city: 'Uster'
-                },
-                {
-                    begin: new Date('2015-10-10T12:00:00.000Z'),
-                    end: new Date('2015-10-11T12:00:00.000Z')
-                },
-                5
-            );
+            event = EventFactory.createTestEvent();
         });
+
+		  describe('id', function() {
+		      it('is a UUID', function() {
+                expect(event.id).toMatch(new RegExp('[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'));
+            });
+		  });
 
         it('Expects changed event begin on set begin', function() {
             expect(event.begin)

@@ -2,7 +2,7 @@ define(['app/models/event'], function(Event) {
     'use strict';
 
     var EventFactory = new function() {
-        this.createTestEvent = function() {
+        this.createTestEvent = function(uuid) {
             return new Event(
             	'Test Event',
             	'test description',
@@ -15,7 +15,8 @@ define(['app/models/event'], function(Event) {
             	    begin: new Date('2015-10-10T12:00:00.000Z'),
             	    end: new Date('2015-10-11T12:00:00.000Z')
             	},
-            	42
+            	42,
+               uuid
             );
         }
     }

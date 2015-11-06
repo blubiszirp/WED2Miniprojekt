@@ -4,15 +4,21 @@ define(['app/models/event', 'app/services/eventFactory'], function (Event, Event
     describe('Event test suite', function() {
         var event;
 
-        // setup
         beforeEach(function() {
             event = EventFactory.createTestEvent();
         });
 
 		  describe('id', function() {
+			   var uuid = 'aaaaaaaa-aaaa-4aaa-aaaa-aaaaaaaaaaaa';
+            var eventWithCustomUuid = EventFactory.createTestEvent(uuid);
+
 		      it('is a UUID', function() {
                 expect(event.id).toMatch(new RegExp('[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'));
             });
+
+            it('is the UUID supplied in the constructor', function() {
+                expect(eventWithCustomUuid.id).toBe(uuid);
+				});
 		  });
 
         it('Expects changed event begin on set begin', function() {

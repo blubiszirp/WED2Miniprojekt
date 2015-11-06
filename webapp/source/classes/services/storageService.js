@@ -73,7 +73,8 @@ define(['app/models/event'], function(Event) {
 			 			 begin: new Date('2015-10-10T12:00:00.000Z'),
 			 			 end: new Date('2015-10-10T13:00:00.000Z')
 			 		},
-			 		null
+			 		null,
+					'aaaaaaaa-aaaa-4aaa-aaaa-aaaaaaaaaaaa'
 			   )
 			   var event2 = new Event(
 			 		'Dinner',
@@ -87,7 +88,8 @@ define(['app/models/event'], function(Event) {
 			 			 begin: new Date('2015-04-05T16:00:00.000Z'),
 			 			 end: new Date('2015-04-05T17:00:00.000Z')
 			 		},
-			 		null
+			 		null,
+					'bbbbbbbb-bbbb-4bbb-bbbb-bbbbbbbbbbbb'
 			   )
 			   var event3 = new Event(
 			 		'Dinner',
@@ -101,7 +103,8 @@ define(['app/models/event'], function(Event) {
 			 			 begin: new Date('2015-12-08T17:00:00.000Z'),
 			 			 end: new Date('2015-12-08T18:00:00.000Z')
 			 		},
-			 		null
+			 		null,
+					'cccccccc-cccc-4ccc-cccc-cccccccccccc'
 			   )
 
 			 	eventList.push(event1);

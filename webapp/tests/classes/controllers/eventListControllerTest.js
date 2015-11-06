@@ -12,7 +12,7 @@ define(['app/controllers/eventListController','frameworks/angular', 'libraries/a
 	describe('EventListController', function(){
 		describe('property scope', function(){
 			it('contains 3 events', function(){
-				expect(3).toBe(eventListController.scope.events.length);
+				expect(3).toBe(eventListController.scope.events.length());
 			});
 		});
 	});

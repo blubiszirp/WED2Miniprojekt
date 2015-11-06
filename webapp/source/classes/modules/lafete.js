@@ -1,4 +1,10 @@
-define(['frameworks/angular', 'app/controllers/eventListController', 'app/services/storageService', 'app/services/eventFactory', 'libraries/angularRoute'], function (Angular, EventListController, StorageService, EventFactory) {
+define(['frameworks/angular',
+        'app/controllers/eventListController',
+        'app/controllers/eventDetailController',
+        'app/services/storageService',
+        'app/services/eventFactory',
+        'libraries/angularRoute'],
+       function (Angular, EventListController, EventDetailController, StorageService, EventFactory) {
     'use strict';
     var Lafete = Angular.module('lafete', ['ngRoute']);
 
@@ -9,18 +15,27 @@ define(['frameworks/angular', 'app/controllers/eventListController', 'app/servic
     /* routing */
     Lafete.config(function($routeProvider) {
         $routeProvider
-            .when('/list', {
+            .when('/events', {
                 controller: 'EventListController',
-                templateUrl: './views/list.html'
+                templateUrl: './views/event/list.html'
+            })
+            .when('/events/:eventId', {
+                controller: 'EventDetailController',
+                templateUrl: './views/event/detail.html'
             })
             .otherwise({
-                redirectTo: '/list'
+                redirectTo: '/events'
             });
     });
 
     /* controllers */
+    /* event list */
     Lafete.controller('EventListController', EventListController);
     EventListController.$inject = ['$scope', 'StorageService'];
+
+    /* event detail */
+    Lafete.controller('EventDetailController', EventDetailController);
+    EventDetailController.$inject = ['$scope', '$routeParams', 'StorageService'];
 
     return Lafete;
 });

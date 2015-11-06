@@ -1,4 +1,3 @@
-// TODO: missing storageService dependency?
 define([], function(Event) {
     'use strict';
 

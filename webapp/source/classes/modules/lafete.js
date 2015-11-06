@@ -6,6 +6,18 @@ define(['frameworks/angular', 'app/controllers/eventListController', 'app/servic
     Lafete.service('StorageService', StorageService);
     Lafete.factory('EventFactory', EventFactory);
 
+    /* routing */
+    Lafete.config(function($routeProvider) {
+        $routeProvider
+            .when('/list', {
+                controller: 'EventListController',
+                templateUrl: './views/list.html'
+            })
+            .otherwise({
+                redirectTo: '/list'
+            });
+    });
+
     /* controllers */
     Lafete.controller('EventListController', EventListController);
     EventListController.$inject = ['$scope', 'StorageService'];

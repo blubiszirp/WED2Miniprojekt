@@ -6,19 +6,13 @@
 	</head>
 	<body>
 		<div>
-			<h2>Events</h2>
 			<!--<h3>API to use</h3>
 			<dl data-ng-init="apiRoutes = [{name:'events', url:'/api/events'}, {name:'event 1', url:'/api/events/1'}, {name:'guests of event 1', url:'/api/events/1/guests'}]">
 				<dt data-ng-repeat-start="apiRoute in apiRoutes" data-ng-bind="apiRoute.name"></dt>
 				<dd data-ng-repeat-end><a href="{{ apiRoute.url}}">{{apiRoute.url}}</a></dd>
 			</dl>-->
 
-			<ul data-ng-controller="EventListController">
-				<li data-ng-repeat="event in events.all()">
-					{{event.name}} in {{event.location.city}} from {{event.begin | date:"dd.MM.yy"}} until {{event.end | date:"dd.MM.yy"}}
-				</li>
-			</ul>
-
+         <div data-ng-view></div>
 		</div>
 		<script src="./libraries/require/require.js" data-main="./classes/main.js"></script>
 	<body>

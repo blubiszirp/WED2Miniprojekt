@@ -9,6 +9,7 @@ define(['frameworks/angular',
     var Lafete = Angular.module('lafete', ['ngRoute']);
 
     /* services */
+    EventRepository.$inject = ['$http'];
     Lafete.service('EventRepository', EventRepository);
     Lafete.factory('EventFactory', EventFactory);
 

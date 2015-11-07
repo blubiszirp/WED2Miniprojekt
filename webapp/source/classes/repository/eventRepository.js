@@ -1,9 +1,15 @@
-define(['app/models/event'], function(Event) {
+define(['app/models/event'], function(Event, $http) {
     'use strict';
 
-    var EventRepository = function() {
+    console.log("typeof $http = " + typeof $http);
+
+    var EventRepository = function($http) {
+        this.urls = {
+           all: '/api/events',
+           get: '/api/events/{eventId}',
+           add: '/api/events'
+        }
         this.events = new (function() {
-            //var eventList = {};
             var eventList = new Array();
             
             /**
@@ -24,17 +30,17 @@ define(['app/models/event'], function(Event) {
             };
             
             /**
-             * Get all events
-             *
-             * @return Event[]
-             */
+              * Get all events
+              *
+              * @return Event[]
+              */
             this.all = function() {
-					// we use map to deep copy the array of object references, which slice() would not do
-            	return eventList.map(function(event) {
-            		return event;
+               // we use map to deep copy the array of object references, which slice() would not do
+               return eventList.map(function(event) {
+                  return event;
                });
             };
-            
+
             /**
              * Add event if not already in list
              *
@@ -111,7 +117,21 @@ define(['app/models/event'], function(Event) {
 			 	eventList.push(event2);
 			 	eventList.push(event3);
         })();
-    };
+
+        /**
+         * Get all events
+         *
+         * @return Event[]
+         */
+        this.all = function(successCallback) {
+        	// Angular HTTP-Service get request
+        	// return event list by callback on success
+        	$http.get(this.urls.all)
+        		.success(function(data) {
+        			successCallback(data.events);
+        		});
+        }
+    }
 
     return EventRepository;
 });

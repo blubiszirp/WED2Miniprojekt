@@ -1,23 +1,23 @@
-define(['app/models/event', 'app/services/storageService', 'app/services/eventFactory'], function (Event, StorageService, EventFactory) {
+define(['app/models/event', 'app/repository/eventRepository', 'app/services/eventFactory'], function (Event, EventRepository, EventFactory) {
 	'use strict';
 
-	describe('EventStorageService test suite', function() {
-		var event, storageService;
+	describe('EventEventRepository test suite', function() {
+		var event, eventRepository;
 
 		// setup
 		beforeEach(function() {
-			storageService = new StorageService();
+			eventRepository = new EventRepository();
 			event = EventFactory.createTestEvent();
  		});
 
 		describe('get()', function() {
 			beforeEach(function() {
-				var ret = storageService.events.add(event);
+				var ret = eventRepository.events.add(event);
 			});
 
 			describe('by object id', function() {
 				it('returns the object', function() {
-					var returnedEvent = storageService.events.get(event.id);
+					var returnedEvent = eventRepository.events.get(event.id);
 
 					expect(returnedEvent).toEqual(event);
 				});
@@ -25,7 +25,7 @@ define(['app/models/event', 'app/services/storageService', 'app/services/eventFa
 
 			describe('by inexistent object id', function() {
 				it('returns null', function() {
-					var returnedEvent = storageService.events.get(0);
+					var returnedEvent = eventRepository.events.get(0);
 
 					expect(returnedEvent).toBeNull();
 				});
@@ -34,7 +34,7 @@ define(['app/models/event', 'app/services/storageService', 'app/services/eventFa
 
 		describe('all()', function() {
 			it('returns an Array', function() {
-				var eventList = storageService.events.all();
+				var eventList = eventRepository.events.all();
 
 				expect(eventList).toEqual(jasmine.any(Array));
 			});
@@ -42,9 +42,9 @@ define(['app/models/event', 'app/services/storageService', 'app/services/eventFa
 
 		describe('add()', function() {
 			it('inserts element', function() {
-				var oldSize = storageService.events.length();
-				storageService.events.add(event);
-				var newSize = storageService.events.length();
+				var oldSize = eventRepository.events.length();
+				eventRepository.events.add(event);
+				var newSize = eventRepository.events.length();
 				expect(newSize).toBe(oldSize + 1);
 			});
 
@@ -53,13 +53,13 @@ define(['app/models/event', 'app/services/storageService', 'app/services/eventFa
 				var oldSize;
 
 				beforeEach(function() {
-					storageService.events.add(event);
-					oldSize = storageService.events.length();
-					returnValue = storageService.events.add(event);
+					eventRepository.events.add(event);
+					oldSize = eventRepository.events.length();
+					returnValue = eventRepository.events.add(event);
 				});
 
 				it('doesn\'t affect repository size', function() {
-					var newSize = storageService.events.length();
+					var newSize = eventRepository.events.length();
 					expect(newSize).toBe(oldSize);
 				});
 

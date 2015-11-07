@@ -1,9 +1,9 @@
 define([], function(Event) {
     'use strict';
 
-    var EventListController = function($scope, storageService) {
+    var EventListController = function($scope, eventRepository) {
         this.scope = $scope;
-        this.scope.events = storageService.events;
+        this.scope.events = eventRepository.events;
     }
 
     return EventListController;

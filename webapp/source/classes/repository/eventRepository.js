@@ -1,7 +1,7 @@
 define(['app/models/event'], function(Event) {
     'use strict';
 
-    var StorageService = function() {
+    var EventRepository = function() {
         this.events = new (function() {
             //var eventList = {};
             var eventList = new Array();
@@ -113,5 +113,5 @@ define(['app/models/event'], function(Event) {
         })();
     };
 
-    return StorageService;
+    return EventRepository;
 });

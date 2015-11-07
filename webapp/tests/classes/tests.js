@@ -29,7 +29,7 @@ require.config({
 require(['libraries/jasmine-boot'], function () {
 	require(['tests/controllers/eventListControllerTest',
 			   'tests/models/eventTest',
-            'tests/services/storageServiceTest'], function(){
+            'tests/repository/eventRepositoryTest'], function(){
 		window.onload();
 	})
 });

@@ -1,4 +1,4 @@
-define([], function(Event) {
+define([], function() {
     'use strict';
 
     var EventDetailController = function($scope, $routeParams, eventRepository) {

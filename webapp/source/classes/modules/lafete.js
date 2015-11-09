@@ -13,6 +13,15 @@ define(['frameworks/angular',
     Lafete.service('EventRepository', EventRepository);
     Lafete.factory('EventFactory', EventFactory);
 
+    /* controllers */
+    /* event list */
+    Lafete.controller('EventListController', EventListController);
+    EventListController.$inject = ['$scope', 'EventRepository'];
+
+    /* event detail */
+    Lafete.controller('EventDetailController', EventDetailController);
+    EventDetailController.$inject = ['$scope', '$routeParams', 'EventRepository'];
+
     /* routing */
     Lafete.config(function($routeProvider) {
         $routeProvider
@@ -28,15 +37,6 @@ define(['frameworks/angular',
                 redirectTo: '/events'
             });
     });
-
-    /* controllers */
-    /* event list */
-    Lafete.controller('EventListController', EventListController);
-    EventListController.$inject = ['$scope', 'EventRepository'];
-
-    /* event detail */
-    Lafete.controller('EventDetailController', EventDetailController);
-    EventDetailController.$inject = ['$scope', '$routeParams', 'EventRepository'];
 
     return Lafete;
 });

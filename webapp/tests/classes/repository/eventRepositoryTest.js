@@ -13,7 +13,7 @@ define(['app/models/event',
          $httpBackend = $injector.get('$httpBackend');
 
          eventRepository = new EventRepository($http);
-         event = EventFactory.createEvent();
+         event = EventFactory.createTestEvent();
 
          // $http Service will return this list of events when call /api/events
          $httpBackend.when('GET', eventRepository.urls.all).respond({
@@ -93,6 +93,7 @@ define(['app/models/event',
 
 				beforeEach(function() {
 					eventRepository.events.add(event);
+
 					oldSize = eventRepository.events.length();
 					returnValue = eventRepository.events.add(event);
 				});

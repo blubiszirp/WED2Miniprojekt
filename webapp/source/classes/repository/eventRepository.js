@@ -1,7 +1,5 @@
-define(['app/models/event'], function(Event, $http) {
+define(['app/models/event'], function(Event) {
     'use strict';
-
-    console.log("typeof $http = " + typeof $http);
 
     var EventRepository = function($http) {
         this.urls = {
@@ -64,7 +62,7 @@ define(['app/models/event'], function(Event, $http) {
              */
 				this.length = function() {
 					return eventList.length;
-				}
+            }
 
 			   // default events
 			   var event1 = new Event(

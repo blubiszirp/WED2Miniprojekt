@@ -33,5 +33,21 @@ define(['app/services/uuidService'], function(UUIDService) {
         });
     };
 
+    /**
+     * Create Event object from data transfer object (json object)
+     */
+    Event.createFromDTO = function(jsonData) {
+        return new Event(
+            jsonData.name,
+            jsonData.description,
+            jsonData.targetGroup,
+            jsonData.eventGift,
+            jsonData.location,
+            jsonData.times,
+            jsonData.maximalAmoutOfGuests,
+            jsonData.id
+        );
+    };
+
     return Event;
 });

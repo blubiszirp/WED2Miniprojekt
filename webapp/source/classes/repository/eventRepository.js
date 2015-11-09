@@ -125,9 +125,13 @@ define(['app/models/event'], function(Event) {
         	// Angular HTTP-Service get request
         	// return event list by callback on success
         	$http.get(this.urls.all)
-        		.success(function(data) {
-        			successCallback(data.events);
-        		});
+                .success(function(data) {
+                    // map applys a function on every element in the array and returns the result as new array
+                    var events = data.events.map(function(eventDTO) {
+                        return Event.createFromDTO(eventDTO);
+                    });
+                    successCallback(events);
+                });
         }
     }
 

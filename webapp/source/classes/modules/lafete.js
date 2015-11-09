@@ -1,6 +1,6 @@
 define(['frameworks/angular',
-        'app/controllers/eventListController',
-        'app/controllers/eventDetailController',
+        'app/controllers/event/listController',
+        'app/controllers/event/detailController',
         'app/repository/eventRepository',
         'app/services/eventFactory',
         'libraries/angularRoute'],

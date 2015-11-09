@@ -1,4 +1,4 @@
-define(['app/controllers/eventListController',
+define(['app/controllers/event/listController',
         'frameworks/angular',
         'libraries/angularMocks'],
        function(EventListController, Angular, AngularMocks) {

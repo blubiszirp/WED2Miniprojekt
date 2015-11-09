@@ -5,7 +5,7 @@ define(['app/models/event',
        function (Event, EventRepository, AngularMocks, EventFactory) {
 	'use strict';
 
-	describe('EventEventRepository test suite', function() {
+	describe('EventRepository test suite', function() {
       var event, eventRepository, $http, $httpBackend;
 
       beforeEach(AngularMocks.inject(function($injector) {

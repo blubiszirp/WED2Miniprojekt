@@ -1,15 +1,16 @@
 define(['app/services/uuidService'], function(UUIDService) {
     'use strict';
 
-    var Event = function(name, description, targetGroup, contributionsDescription, location, times, maximalAmoutOfGuests, uuid) {
-		  if (typeof uuid === 'undefined') {
+    var Event = function(name, description, targetGroup, eventGift, location, times, maximalAmoutOfGuests, uuid) {
+		/*  if (typeof uuid === 'undefined') {
 	         uuid = UUIDService.getRandomUuid();
         }
-        this.id = uuid;
+        this.id = uuid;*/
+        this.id = uuid || UUIDService.getRandomUuid();
         this.name = name;
         this.description = description;
         this.targetGroup = targetGroup;
-        this.contributionsDescription = contributionsDescription;
+        this.eventGift = eventGift;
         this.location = location;
         this.times = times;
         this.maximalAmoutOfGuests = maximalAmoutOfGuests;

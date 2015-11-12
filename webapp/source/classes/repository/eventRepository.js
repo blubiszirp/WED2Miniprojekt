@@ -9,7 +9,7 @@ define(['app/models/event'], function(Event) {
         }
         this.events = new (function() {
             var eventList = new Array();
-            
+
             /**
              * Find event by identifier
              *
@@ -23,10 +23,10 @@ define(['app/models/event'], function(Event) {
             		     return event;
             		 }
             	}
-            
+
             	return null;
             };
-            
+
             /**
               * Get all events
               *
@@ -48,10 +48,10 @@ define(['app/models/event'], function(Event) {
             this.add = function(event) {
             	if (this.get(event.id) == null) {
             		eventList.push(event);
-            
+
             		return true;
             	}
-            
+
             	return false;
             };
 
@@ -133,7 +133,8 @@ define(['app/models/event'], function(Event) {
                     successCallback(events);
                 });
         }
-    }
 
+
+    }
     return EventRepository;
 });

@@ -2,11 +2,11 @@ define([], function() {
     'use strict';
 
     var EventListController = function($scope, EventRepository) {
-       var self = this;
-       self.scope = $scope;
+       this.scope = $scope;
        EventRepository.all(function(events) {
-          self.scope.events = events;
-       });
+          this.scope.events = events;
+           this.scope.$apply();
+       }.bind(this));
     };
 
     return EventListController;

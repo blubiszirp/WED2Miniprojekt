@@ -6,10 +6,9 @@ define(['app/models/event'], function(Event){
     "use strict"
     return function($scope, $location, EventRepository){
         this.scope = $scope;
-        var event = new Event();
-        this.scope.event = event;
+        this.scope.event = new Event();
         this.scope.addEvent = function(){
-            EventRepository.add(event, function(){
+            EventRepository.add($scope.event, function(){
                     $location.path('#/events')
                 }
             );

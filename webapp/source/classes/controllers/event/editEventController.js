@@ -12,8 +12,9 @@ define(['app/models/event'], function(Event){
             this.scope.event = event;
         }.bind(this));
 
+
         this.scope.update = function(){
-            EventRepository.add(this.scope.event, function(){
+            EventRepository.update($scope.event, function(){
                     $location.path('#/events')
                 }
             );

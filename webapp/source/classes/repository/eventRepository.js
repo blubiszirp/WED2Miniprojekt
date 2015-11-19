@@ -27,9 +27,10 @@ define(['app/models/event'], function(Event) {
         }
 
 		this.get = function (identifier, successCallback) {
-			$http.get(this.urls.get.replace('{eventId}', identifier)).success(function(eventDTO){
-				successCallback(Event.createFromDTO(eventDTO));
-			});
+			$http.get(this.urls.get.replace('{eventId}', identifier))
+                .success(function(eventDTO){
+				    successCallback(Event.createFromDTO(eventDTO));
+			    });
 		};
 
 		this.add = function(event,successCallback) {
@@ -39,6 +40,12 @@ define(['app/models/event'], function(Event) {
 				});
 		}
 
+        this.update = function(event,successCallback){
+            $http.post(this.urls.get.replace('{eventId}',event.id),event)
+                .success(function(){
+                   successCallback(true);
+                });
+        }
     }
     return EventRepository;
 });

@@ -2,10 +2,11 @@ define(['frameworks/angular',
         'app/controllers/event/listController',
         'app/controllers/event/detailController',
         'app/controllers/event/addEventController',
+        'app/controllers/event/editEventController',
         'app/repository/eventRepository',
         'app/services/eventFactory',
         'libraries/angularRoute'],
-       function (Angular, EventListController, EventDetailController, AddEventController, EventRepository, EventFactory) {
+       function (Angular, EventListController, EventDetailController, AddEventController, EditEventController, EventRepository, EventFactory) {
     'use strict';
     var Lafete = Angular.module('lafete', ['ngRoute']);
 
@@ -27,6 +28,10 @@ define(['frameworks/angular',
     Lafete.controller('AddEventController', AddEventController);
     AddEventController.$inject = ['$scope', '$location', 'EventRepository'];
 
+    /* add event */
+    Lafete.controller('EditEventController', EditEventController);
+    EditEventController.$inject = ['$scope', '$location', '$routeParams', 'EventRepository'];
+
     /* routing */
     Lafete.config(function($routeProvider) {
         $routeProvider
@@ -41,6 +46,10 @@ define(['frameworks/angular',
             .when('/addEvent', {
                 controller: 'AddEventController',
                 templateUrl: 'views/event/addEvent.html'
+            })
+            .when('/editEvent/:eventId', {
+                controller: 'EditEventController',
+                templateUrl: 'views/event/editEvent.html'
             })
             .otherwise({
                 redirectTo: '/events'

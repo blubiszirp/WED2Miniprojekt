@@ -1,6 +1,6 @@
 <h2>Add Event</h2>
 
-<a href="#/events">back to overview</a>
+<a href="#/events/{{ event.id }}">back to event</a>
 </br>
 
 <label for="name">Eventname</label>
@@ -23,4 +23,4 @@
 <input ng-model="event.times.begin" type="datetime-local" id="eventbegin"></br>
 <label for="eventend">Event end</label>
 <input ng-model="event.times.end" type="datetime-local" id="eventend">
-<button type="button" ng-click="addEvent()">Create new Event</button>
+<button type="button" ng-click="update()">Save</button>

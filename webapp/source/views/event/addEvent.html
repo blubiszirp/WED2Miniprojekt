@@ -1,0 +1,26 @@
+<h2>Add Event</h2>
+
+<a href="#/events">back to overview</a>
+<p></p>
+
+<label for="name">Eventname</label>
+<input ng-model="event.name" type="text" id="name"></br>
+<label  for="description">Description</label>
+<input  ng-model="event.description" type="text" id="description"></br>
+<label for="targetGroup">Target Group</label>
+<input  ng-model="event.targetGroup" type="text" id="targetGroup"></br>
+<label for="eventGift">Contributions Description</label>
+<input  ng-model="event.eventGift" type="text" id="eventGift"></br>
+<label  for="locationname">Location name</label>
+<input  ng-model="event.location.name" type="text" id="locationname"></br>
+<label for="locationstreet">Location street</label>
+<input ng-model="event.location.street" type="text" id="locationstreet"></br>
+<label for="locationplz">Location plz</label>
+<input ng-model="event.location.plz" type="text" id="locationplz"></br>
+<label for="locationcity">Location city</label>
+<input ng-model="event.location.city" type="text" id="locationcity"></br>
+<label for="eventbegin">Event begin</label>
+<input ng-model="event.times.begin" type="datetime-local" id="eventbegin"></br>
+<label for="eventend">Event end</label>
+<input ng-model="event.times.end" type="datetime-local" id="eventend"></br>
+<button type="button" ng-click="addEvent()">Create new Event</button>

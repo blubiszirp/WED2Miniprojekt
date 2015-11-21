@@ -19,6 +19,9 @@ define(['app/models/event',
          $httpBackend.when('GET', eventRepository.urls.all).respond({
             events: [{id: 1, name: 'Dinner'},{id: 2, name: 'Lunch'}]
          });
+		 /*$httpBackend.when('GET', eventRepository.urls.get.replace('{eventId}',event.id)).respond({
+			  events: [{id: 1, name: 'Dinner'},{id: 2, name: 'Lunch'}]
+		 });*/
 
 		  /*$httpBackend.when('post', eventRepository.urls.add).respond({
 			  events: [{id: 1, name: 'Dinner'},{id: 2, name: 'Lunch'}]
@@ -54,7 +57,28 @@ define(['app/models/event',
 			});
 		});
 
-		describe('add()', function() {
+		/*describe('get()', function() {
+			beforeEach(function() {
+				var event1 = {id: 1, name: 'Dinner'};
+		});
+
+			describe('by object id', function() {
+				it('returns the object', function() {
+					var returnedEvent = eventRepository.get(event1.id);
+
+					expect(returnedEvent).toEqual(event1);
+				});
+			});
+
+			describe('by inexistent object id', function() {
+				it('returns null', function() {
+					var returnedEvent = eventRepository.get(0);
+					expect(returnedEvent).toBeNull();
+				});
+			});
+		});*/
+
+		/*describe('add()', function() {
 			it('inserts element', function() {
 				var oldSize = eventRepository.events.length();
 				eventRepository.events.add(event);
@@ -82,7 +106,7 @@ define(['app/models/event',
 					expect(returnValue).toBe(false);
 				});
 			});
-		});
+		});*/
 
 		/*
 		describe('get()', function() {

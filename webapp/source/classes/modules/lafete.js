@@ -3,16 +3,28 @@ define(['frameworks/angular',
         'app/controllers/event/detailController',
         'app/controllers/event/addEventController',
         'app/controllers/event/editEventController',
+        'app/controllers/guest/guestListController',
         'app/repository/eventRepository',
+        'app/repository/guestRepository',
         'app/services/eventFactory',
         'libraries/angularRoute'],
-       function (Angular, EventListController, EventDetailController, AddEventController, EditEventController, EventRepository, EventFactory) {
+       function (Angular,
+                 EventListController,
+                 EventDetailController,
+                 AddEventController,
+                 EditEventController,
+                 GuestListController,
+                 EventRepository,
+                 GuestRepository,
+                 EventFactory) {
     'use strict';
     var Lafete = Angular.module('lafete', ['ngRoute']);
 
     /* services */
     EventRepository.$inject = ['$http'];
+    GuestRepository.$inject = ['$http'];
     Lafete.service('EventRepository', EventRepository);
+    Lafete.service('GuestRepository', GuestRepository);
     Lafete.factory('EventFactory', EventFactory);
 
     /* controllers */
@@ -32,6 +44,10 @@ define(['frameworks/angular',
     Lafete.controller('EditEventController', EditEventController);
     EditEventController.$inject = ['$scope', '$location', '$routeParams', 'EventRepository'];
 
+    /* guest list */
+    Lafete.controller('GuestListController', GuestListController);
+    GuestListController.$inject = ['$scope', '$routeParams', 'GuestRepository'];
+
     /* routing */
     Lafete.config(function($routeProvider) {
         $routeProvider
@@ -50,6 +66,10 @@ define(['frameworks/angular',
             .when('/editEvent/:eventId', {
                 controller: 'EditEventController',
                 templateUrl: 'views/event/editEvent.html'
+            })
+            .when('/events/:eventId/guests', {
+                controller: 'GuestListController',
+                templateUrl: 'views/guest/list.html'
             })
             .otherwise({
                 redirectTo: '/events'

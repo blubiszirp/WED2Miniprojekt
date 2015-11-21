@@ -1,0 +1,11 @@
+<h2>Guests</h2>
+<a href="#/events/{{ eventId }}">back to event</a>
+<a href="#/addGuest">[+]</a>
+<ul>
+    <li data-ng-repeat="guest in guests">
+        <p><i>name</i>: {{ guest.name }}</p>
+        <p><i>contribution</i>: {{ guest.contribution }}</p>
+        <p><i>comment</i>: {{ guest.comment }}</p>
+        <a href="#/events/{{ eventId }}/guests/{{ guest.id }}">edit</a>
+    </li>
+</ul>

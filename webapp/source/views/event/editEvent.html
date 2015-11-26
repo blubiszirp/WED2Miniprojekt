@@ -19,5 +19,8 @@
 <input ng-model="event.location.plz" type="text" id="locationplz"></br>
 <label for="locationcity">Location city</label>
 <input ng-model="event.location.city" type="text" id="locationcity"></br>
-
+<label for="eventbegin">Event begin</label>
+<input ng-model="event.times.begin" type="datetime-local" id="eventbegin"></br>
+<label for="eventend">Event end</label>
+<input ng-model="event.times.end" type="datetime-local" id="eventend">
 <button type="button" ng-click="update()">Save</button>

@@ -41,7 +41,7 @@ define(['app/services/uuidService'], function(UUIDService) {
             jsonData.targetGroup,
             jsonData.contributionsDescription,
             jsonData.location,
-            jsonData.times,
+            {'begin':new Date(jsonData.times.begin),'end':new Date(jsonData.times.end)},
             jsonData.maximalAmoutOfGuests,
             jsonData.id
         );

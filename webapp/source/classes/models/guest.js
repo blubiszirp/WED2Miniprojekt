@@ -2,12 +2,12 @@
  * Created by Frank on 21.11.2015.
  */
 
-define([], function() {
+define(['app/services/uuidService'], function(UUIDService) {
     'use strict';
 
     var Guest = function(name, contribution, comment,id) {
 
-        this.id = null;
+        this.id = id || UUIDService.getRandomUuid();
         this.name = name;
         this.contribution = contribution;
         this.comment = comment;

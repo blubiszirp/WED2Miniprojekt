@@ -4,6 +4,7 @@ define(['frameworks/angular',
         'app/controllers/event/addEventController',
         'app/controllers/event/editEventController',
         'app/controllers/guest/guestListController',
+        'app/controllers/guest/addGuestController',
         'app/repository/eventRepository',
         'app/repository/guestRepository',
         'app/services/eventFactory',
@@ -14,6 +15,7 @@ define(['frameworks/angular',
                  AddEventController,
                  EditEventController,
                  GuestListController,
+                 AddGuestController,
                  EventRepository,
                  GuestRepository,
                  EventFactory) {
@@ -48,6 +50,10 @@ define(['frameworks/angular',
     Lafete.controller('GuestListController', GuestListController);
     GuestListController.$inject = ['$scope', '$routeParams', 'GuestRepository'];
 
+    /* guest list */
+    Lafete.controller('AddGuestController', AddGuestController);
+    AddGuestController.$inject = ['$scope', '$location', '$routeParams', 'GuestRepository'];
+
     /* routing */
     Lafete.config(function($routeProvider) {
         $routeProvider
@@ -70,6 +76,10 @@ define(['frameworks/angular',
             .when('/events/:eventId/guests', {
                 controller: 'GuestListController',
                 templateUrl: 'views/guest/list.html'
+            })
+            .when('/events/:eventId/addGuest', {
+                controller: 'AddGuestController',
+                templateUrl: 'views/guest/addGuest.html'
             })
             .otherwise({
                 redirectTo: '/events'

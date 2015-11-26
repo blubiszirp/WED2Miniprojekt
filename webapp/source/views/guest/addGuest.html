@@ -1,0 +1,12 @@
+<h2>Add Guest</h2>
+
+<a href="#/events/{{evendId}}">back to Event</a>
+</br>
+
+<label for="name">Name</label>
+<input ng-model="guest.name" type="text" id="name"></br>
+<label  for="contribution">Contribution</label>
+<input  ng-model="guest.contribution" type="text" id="contribution"></br>
+<label  for="comment">Comment</label>
+<input  ng-model="guest.comment" type="text" id="comment"></br>
+<button type="button" ng-click="addGuest()">Create new Guest</button>

@@ -30,7 +30,7 @@ define(['app/models/guest'], function(Guest) {
         }
 
         this.get = function (eventId, guestId, successCallback) {
-            $http.get(this.urls.get.replace('{eventId}', identifier).replace('{guestId}', guestId))
+            $http.get(this.urls.get.replace('{eventId}', eventId).replace('{guestId}', guestId))
                 .success(function(guestDTO){
                     successCallback(Guest.createFromDTO(guestDTO));
                 });

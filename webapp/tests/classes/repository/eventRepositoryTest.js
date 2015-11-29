@@ -15,9 +15,16 @@ define(['app/models/event',
          eventRepository = new EventRepository($http);
          event = EventFactory.createTestEvent();
 
-         // $http Service will return this list of events when call /api/events
          $httpBackend.when('GET', eventRepository.urls.all).respond({
-            events: [{id: 1, name: 'Dinner'},{id: 2, name: 'Lunch'}]
+            events: [{
+                        id: 1,
+                        name: 'Dinner',
+                        times: { begin: '01.01.2016 12:00', end: '01.01.2016 18:00' }
+                    },{
+                        id: 2,
+                        name: 'Lunch',
+                        times: { begin: '02.01.2016 14:00', end: '02.01.2016 20:00' }
+                    }]
          });
 		 /*$httpBackend.when('GET', eventRepository.urls.get.replace('{eventId}',event.id)).respond({
 			  events: [{id: 1, name: 'Dinner'},{id: 2, name: 'Lunch'}]

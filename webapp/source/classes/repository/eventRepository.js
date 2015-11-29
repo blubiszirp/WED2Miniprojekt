@@ -26,13 +26,11 @@ define(['app/models/event'], function(Event) {
                 });
         }
 
-        this.get = function (identifier) {
-           var event = null;
+        this.get = function (identifier, successCallback) {
            $http.get(this.urls.get.replace('{eventId}', identifier))
-               .then(function(eventDTO){
-                      event = Event.createFromDTO(eventDTO);
+               .success(function(eventDTO) {
+                      successCallback(Event.createFromDTO(eventDTO));
                   });
-           return event;
         }
 
         this.add = function(event) {

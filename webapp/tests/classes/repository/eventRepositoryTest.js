@@ -27,13 +27,7 @@ define(['app/models/event',
                     }]
          });
 
-         $httpBackend.when('GET', eventRepository.urls.get.replace('{eventId}', event.id)).respond({
-             events: event
-         });
-
-		  /*$httpBackend.when('post', eventRepository.urls.add).respond({
-			  events: [{id: 1, name: 'Dinner'},{id: 2, name: 'Lunch'}]
-		  });*/
+         $httpBackend.when('GET', eventRepository.urls.get.replace('{eventId}', event.id)).respond(event);
       }));
 
       // Check if there are no hanging requests
@@ -49,7 +43,6 @@ define(['app/models/event',
 					events = eventList;
 				});
 
-				// Mock ajax channel needs to be flushed (calls needs to be fired) befor check
 				$httpBackend.flush();
 				expect(events).toEqual(jasmine.any(Array));
 			});
@@ -59,7 +52,6 @@ define(['app/models/event',
 					events = eventList;
 				});
 
-				// Mock ajax channel needs to be flushed (calls needs to be fired) befor check
 				$httpBackend.flush();
 				expect(events.length).toBe(2);
 			});
@@ -67,12 +59,12 @@ define(['app/models/event',
 
       describe('get()', function() {
          beforeEach(function() {
-            //var event1 = {id: 1, name: 'Dinner'};
          });
 
          describe('by object id', function() {
             it('returns the object', function() {
-               var returnedEvent = eventRepository.get(event.id);
+               var returnedEvent = null;
+               eventRepository.get(event.id, function(event) { returnedEvent = event; });
 
                $httpBackend.flush();
                expect(returnedEvent).toEqual(event);
@@ -82,9 +74,10 @@ define(['app/models/event',
 			describe('by inexistent object id', function() {
 				it('returns null', function() {
                var inexistentId = 12345679;
+               var returnedEvent = null;
                $httpBackend.expectGET(eventRepository.urls.get.replace('{eventId}', inexistentId))
                   .respond(404, '');
-					var returnedEvent = eventRepository.get(inexistentId);
+               eventRepository.get(inexistentId, function(event) { returnedEvent = event; });
 
                $httpBackend.flush();
 					expect(returnedEvent).toBeNull();

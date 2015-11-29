@@ -26,9 +26,10 @@ define(['app/models/event',
                         times: { begin: '02.01.2016 14:00', end: '02.01.2016 20:00' }
                     }]
          });
-		 /*$httpBackend.when('GET', eventRepository.urls.get.replace('{eventId}',event.id)).respond({
-			  events: [{id: 1, name: 'Dinner'},{id: 2, name: 'Lunch'}]
-		 });*/
+
+         $httpBackend.when('GET', eventRepository.urls.get.replace('{eventId}', event.id)).respond({
+             events: event
+         });
 
 		  /*$httpBackend.when('post', eventRepository.urls.add).respond({
 			  events: [{id: 1, name: 'Dinner'},{id: 2, name: 'Lunch'}]
@@ -64,26 +65,32 @@ define(['app/models/event',
 			});
 		});
 
-		/*describe('get()', function() {
-			beforeEach(function() {
-				var event1 = {id: 1, name: 'Dinner'};
-		});
+      describe('get()', function() {
+         beforeEach(function() {
+            //var event1 = {id: 1, name: 'Dinner'};
+         });
 
-			describe('by object id', function() {
-				it('returns the object', function() {
-					var returnedEvent = eventRepository.get(event1.id);
+         describe('by object id', function() {
+            it('returns the object', function() {
+               var returnedEvent = eventRepository.get(event.id);
 
-					expect(returnedEvent).toEqual(event1);
-				});
-			});
+               $httpBackend.flush();
+               expect(returnedEvent).toEqual(event);
+            });
+         });
 
 			describe('by inexistent object id', function() {
 				it('returns null', function() {
-					var returnedEvent = eventRepository.get(0);
+               var inexistentId = 12345679;
+               $httpBackend.expectGET(eventRepository.urls.get.replace('{eventId}', inexistentId))
+                  .respond(404, '');
+					var returnedEvent = eventRepository.get(inexistentId);
+
+               $httpBackend.flush();
 					expect(returnedEvent).toBeNull();
 				});
 			});
-		});*/
+		});
 
 		/*describe('add()', function() {
 			it('inserts element', function() {

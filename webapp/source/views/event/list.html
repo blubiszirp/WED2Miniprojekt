@@ -4,7 +4,7 @@
    <a class="headerlink" href="#/addEvent">[+]</a>
 </div>
 <ul>
-   <li data-ng-repeat="event in events" data-ng-click="loadDetail(event.id)">
+   <li data-ng-repeat="event in events" data-ng-click="loadDetail(event.id)" class="eventlistelement">
       <p class='date'>{{event.times.begin | date: medium }} - {{event.times.end | date:medium}}</p>
       <p>{{event.name}}</p>
       <p>{{event.location.name}}</p>

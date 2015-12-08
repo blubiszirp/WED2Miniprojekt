@@ -28,3 +28,11 @@ h1 {
     color:white;
     margin-right: 1rem
 }
+
+.eventlistelement{
+    cursor: pointer;
+}
+
+.eventlistelement:hover>p{
+    color: #aaaaaa;
+}

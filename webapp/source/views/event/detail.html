@@ -6,14 +6,16 @@
         <a class="headerlink" href="#/editEvent/{{event.id}}">edit</a>
     </div>
 </div>
-<h2>Event Details</h2>
-
-
-<p><i>id</i>: {{ event.id }}</p>
-<p><i>name</i>: {{ event.name }}</p>
-<p><i>description</i>: {{ event.description }}</p>
-<p><i>targetGroup</i>: {{ event.targetGroup }}</p>
-<p><i>contributionsDescription</i>: {{ event.contributionsDescription }}</p>
-<p><i>location</i>: {{ event.location }}</p>
+<h3>Description:</h3>
+<p>{{ event.description }}</p>
+<h3>Target Group:</h3>
+<p>{{ event.targetGroup }}</p>
+<h3>Contributions Description:</h3>
+<p>{{ event.contributionsDescription }}</p>
+<h3>Location:</h3>
+<p>{{ event.location.name }}</p>
+<p>{{ event.location.street }}</p>
+<p>{{ event.location.plz }}, {{ event.location.city }}</p>
+<h3>Time:</h3>
 <p><i>starts</i>: {{ event.times.begin }}</p>
 <p><i>ends</i>: {{ event.times.end }}</p>

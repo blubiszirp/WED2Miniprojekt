@@ -1,5 +1,5 @@
 <div class="header">
-    <h1>{{event.name}}</h1>
+    <h1>{{event.name}} ({{event.guests.length}} Guests)</h1>
     <div class="linkcontainer">
         <a class="headerlink" href="#/events">back to overview</a>
         <a class="headerlink" href="#/events/{{event.id}}/guests">show guests</a>
@@ -17,4 +17,3 @@
 <p><i>location</i>: {{ event.location }}</p>
 <p><i>starts</i>: {{ event.times.begin }}</p>
 <p><i>ends</i>: {{ event.times.end }}</p>
-<p><i>maximalAmountOfGuests</i>: {{ event.maximalAmountOfGuests }}</p>

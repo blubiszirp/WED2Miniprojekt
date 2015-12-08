@@ -17,5 +17,12 @@ define(['app/models/guest'], function(Guest){
             });
         };
 
+        this.scope.cancel = function(){
+            $scope.guest.canceled = true;
+            GuestRepository.update(eventId, $scope.guest, function() {
+                $location.path('/events/' + eventId + '/guests');
+            });
+        };
+
     }
 });

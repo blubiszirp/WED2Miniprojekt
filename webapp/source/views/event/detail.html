@@ -1,5 +1,5 @@
 <div class="header">
-    <h1>{{event.name}} ({{event.guests.length}} Guests)</h1>
+    <h1>{{event.name}} ({{(event.guests | filter:{canceled:'false'}).length}} Guests)</h1>
     <div class="linkcontainer">
         <a class="headerlink" href="#/events">back to overview</a>
         <a class="headerlink" href="#/events/{{event.id}}/guests">show guests</a>

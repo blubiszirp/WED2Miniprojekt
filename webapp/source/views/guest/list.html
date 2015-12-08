@@ -5,7 +5,7 @@
     <a class="headerlink" href="#/events/{{ eventId }}">back to event</a>
 </div>
 <ul>
-    <li data-ng-repeat="guest in guests">
+    <li data-ng-repeat="guest in guests | filter:{canceled:'false'}">
         <p><i>name</i>: {{ guest.name }}</p>
         <p><i>contribution</i>: {{ guest.contribution }}</p>
         <p><i>comment</i>: {{ guest.comment }}</p>

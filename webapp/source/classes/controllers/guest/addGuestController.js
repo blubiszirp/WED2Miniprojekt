@@ -9,6 +9,7 @@ define(['app/models/guest'], function(Guest){
         var eventId = $routeParams.eventId;
         this.scope.eventId = eventId;
         this.scope.guest = new Guest();
+        this.scope.guest.canceled = false;
         this.scope.addGuest = function(){
             GuestRepository.add(eventId,$scope.guest, function(){
                     $location.path('/events/'+eventId+'/guests');

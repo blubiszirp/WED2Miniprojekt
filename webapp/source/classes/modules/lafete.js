@@ -34,7 +34,7 @@ define(['frameworks/angular',
     /* controllers */
     /* event list */
     Lafete.controller('EventListController', EventListController);
-    EventListController.$inject = ['$scope', 'EventRepository'];
+    EventListController.$inject = ['$scope', '$location', 'EventRepository'];
 
     /* event detail */
     Lafete.controller('EventDetailController', EventDetailController);

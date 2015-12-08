@@ -33,11 +33,11 @@ define(['app/models/event'], function(Event) {
                   });
         }
 
-        this.add = function(event) {
+        this.add = function(event,successCallback) {
            var success = false;
            $http.post(this.urls.add,event)
               .success(function() {
-                 success = true;
+                   successCallback();
               });
            return success;
         }
@@ -45,7 +45,7 @@ define(['app/models/event'], function(Event) {
         this.update = function(event,successCallback){
             $http.post(this.urls.get.replace('{eventId}',event.id),event)
                 .success(function(){
-                   successCallback(true);
+                   successCallback();
                 });
         }
     }

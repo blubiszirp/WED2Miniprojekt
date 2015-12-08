@@ -8,10 +8,9 @@ define(['app/models/event'], function(Event){
         this.scope = $scope;
         this.scope.event = new Event();
         this.scope.addEvent = function(){
-            EventRepository.add($scope.event, function(){
-                    $location.path('/events')
-                }
-            );
+            EventRepository.add($scope.event,function(){
+                $location.path('/events');
+            });
         };
     }
 });

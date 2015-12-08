@@ -1,7 +1,8 @@
-<h2>Edit Guest</h2>
+<div class="header">
+    <h1>Edit Guest - {{guest.name}}</h1>
+    <a class="headerlink" href="#/events/{{eventId}}/guests">back to guest list</a>
+</div>
 
-<a href="#/events/{{eventId}}/guests">back to guest list</a>
-</br>
 
 <label for="name">Name</label>
 <input ng-model="guest.name" type="text" id="name"></br>

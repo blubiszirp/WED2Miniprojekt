@@ -1,6 +1,9 @@
-<h2>Guests</h2>
-<a href="#/events/{{ eventId }}">back to event</a>
-<a href="#/events/{{ eventId }}/addGuest">[+]</a>
+<div class="header">
+    <h1>Guests</h1>
+    <!--<button class="headerbutton" type="button" ng-click="addEvent()">+</button>-->
+    <a class="headerlink" href="#/events/{{ eventId }}/addGuest">[+]</a>
+    <a class="headerlink" href="#/events/{{ eventId }}">back to event</a>
+</div>
 <ul>
     <li data-ng-repeat="guest in guests">
         <p><i>name</i>: {{ guest.name }}</p>

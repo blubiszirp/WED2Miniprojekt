@@ -85,6 +85,13 @@ define(['app/models/event',
 			});
 		});
 
+		describe('add()', function(){
+			//TODO
+		});
+		describe('update()', function(){
+			//TODO
+		});
+
 		/*describe('add()', function() {
 			it('inserts element', function() {
 				var oldSize = eventRepository.events.length();

@@ -4,7 +4,7 @@ define(['app/controllers/event/listController',
        function(EventListController, Angular, AngularMocks) {
 	'use strict';
 
-	var scope, eventRepository, $httpBackend;
+	var scope, eventRepository;
 
 	beforeEach(AngularMocks.inject(function($injector) {
 		scope = $injector.get('$rootScope').$new();
@@ -22,7 +22,7 @@ define(['app/controllers/event/listController',
 	describe('EventListController', function() {
 		describe('property scope', function() {
 			it('contains 3 events', function() {
-				var eventListController = new EventListController(scope, eventRepository);
+				var eventListController = new EventListController(scope, null, eventRepository);
 				expect(3).toBe(eventListController.scope.events.length);
 			});
 		});

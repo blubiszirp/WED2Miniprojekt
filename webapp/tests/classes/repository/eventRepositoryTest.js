@@ -79,6 +79,7 @@ define(['app/models/event',
 						var returnedEvent = null;
 						$httpBackend.expectGET(eventRepository.urls.get.replace('{eventId}', inexistentId))
 							.respond(404, '');
+
 						eventRepository.get(inexistentId, function(event) { returnedEvent = event; });
 
 						$httpBackend.flush();
@@ -91,21 +92,23 @@ define(['app/models/event',
 				it('add an event', function() {
 					var event = EventFactory.createTestEvent();
 					$httpBackend.expectPOST(eventRepository.urls.add,event).respond(200, '');
+
 					eventRepository.add(event,function(){});
-					$httpBackend.flush();
-					expect(true).toBe(true);
+
+					expect($httpBackend.flush).not.toThrow();
 				});
 			});
 			describe('update()', function(){
 				it('update an event', function() {
 					var eventToUpdate = null;
 					eventRepository.get(event.id, function(event) { eventToUpdate = event; });
+
 					$httpBackend.flush();
 					eventToUpdate.name = "PARTY PARTY";
 					$httpBackend.expectPOST(eventRepository.urls.update.replace('{eventId}',eventToUpdate.id),eventToUpdate).respond(200, '');
 					eventRepository.update(eventToUpdate,function(){});
-					$httpBackend.flush();
-					expect(true).toBe(true);
+
+					expect($httpBackend.flush).not.toThrow();
 				});
 			});
 

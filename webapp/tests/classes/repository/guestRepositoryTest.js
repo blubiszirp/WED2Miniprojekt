@@ -87,21 +87,23 @@ define(['app/models/guest',
                 it('add an guest', function() {
                     var guestToAdd = guest;
                     $httpBackend.expectPOST(guestRepository.urls.add.replace('{eventId}','1'),guestToAdd).respond(200, '');
+
                     guestRepository.add(1,guestToAdd,function(){});
-                    $httpBackend.flush();
-                    expect(true).toBe(true);
+
+                    expect($httpBackend.flush).not.toThrow();
                 });
             });
             describe('update()', function(){
                 it('update an guest', function() {
                     var guestToUpdate = null;
                     guestRepository.get(1,guest.id, function(guest) { guestToUpdate = guest; });
+
                     $httpBackend.flush();
                     guestToUpdate.name = "Max";
                     $httpBackend.expectPOST(guestRepository.urls.update.replace('{eventId}','1').replace('{guestId}',guestToUpdate.id),guestToUpdate).respond(200, '');
                     guestRepository.update(1,guestToUpdate,function(){});
-                    $httpBackend.flush();
-                    expect(true).toBe(true);
+
+                    expect($httpBackend.flush).not.toThrow();
                 });
             });
 

@@ -10,13 +10,13 @@ define(['app/models/guest',
                 $http = $injector.get('$http');
                 $httpBackend = $injector.get('$httpBackend');
 
-                guestRepository = new EventRepository($http);
+                guestRepository = new GuestRepository($http);
                 //guest = EventFactory.createTestEvent();
                 guest = {id: 1,
                         name: 'Hans'};
 
 
-                $httpBackend.when('GET', guestRepository.urls.all).replace('{eventId}', eventId).respond({
+                $httpBackend.when('GET', guestRepository.urls.all.replace('{eventId}', eventId).respond({
                     guests: [{
                         id: 1,
                         name: 'Hans',
@@ -36,7 +36,17 @@ define(['app/models/guest',
             });
 
             describe('all()', function(){
-                //TODO
+                it('returns an Array', function() {
+                    var guests = null;
+                    guestRepository.all(function(guestList) {
+                        guests =guestList;
+                    });
+
+                    $httpBackend.flush();
+                    expect(guests).toEqual(jasmine.any(Array));
+                });
+
+
             });
             describe('get()', function(){
                 //TODO

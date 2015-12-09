@@ -6,20 +6,12 @@ define(['app/models/event'], function(Event) {
            all: '/api/events',
            get: '/api/events/{eventId}',
            add: '/api/events',
-           update: '/api/events'
+           update: '/api/events/{eventId}'
         }
 
-        /**
-         * Get all events
-         *
-         * @return Event[]
-         */
         this.all = function(successCallback) {
-        	// Angular HTTP-Service get request
-        	// return event list by callback on success
         	$http.get(this.urls.all)
                 .success(function(data) {
-                    // map applys a function on every element in the array and returns the result as new array
                     var events = data.events.map(function(eventDTO) {
                         return Event.createFromDTO(eventDTO);
                     });
@@ -50,5 +42,6 @@ define(['app/models/event'], function(Event) {
                 });
         }
     }
+
     return EventRepository;
 });

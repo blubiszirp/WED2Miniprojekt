@@ -4,26 +4,58 @@
 </div>
 </br>
 
-<label for="name">Name:</label><br>
-<input ng-model="event.name" type="text" id="name"></br>
-<label  for="description">Description:</label><br>
-<input  ng-model="event.description" type="text" id="description"></br>
-<label for="targetGroup">Target group:</label><br>
-<input  ng-model="event.targetGroup" type="text" id="targetGroup"></br>
-<label for="contributionsDescription">Contributions description:</label><br>
-<input  ng-model="event.contributionsDescription" type="text" id="contributionsDescription"></br>
-<label  for="locationname">Location name:</label><br>
-<input  ng-model="event.location.name" type="text" id="locationname"></br>
-<label for="locationstreet">Location street:</label><br>
-<input ng-model="event.location.street" type="text" id="locationstreet"></br>
-<label for="locationplz">Location PLZ:</label><br>
-<input ng-model="event.location.plz" type="number" id="locationplz"></br>
-<label for="locationcity">Location city:</label><br>
-<input ng-model="event.location.city" type="text" id="locationcity"></br>
-<label for="eventbegin">Event begin:</label><br>
-<input ng-model="event.times.begin" type="datetime-local" id="eventbegin"></br>
-<label for="eventend">Event end:</label><br>
-<input ng-model="event.times.end" type="datetime-local" id="eventend">
-<br>
-<br>
-<button type="button" ng-click="update()">Save</button>
+<form>
+    <div class="formitem">
+        <label for="name">Name:</label><br />
+        <input ng-model="event.name" type="text" id="name" required><br />
+    </div>
+
+    <div class="formitem">
+        <label for="description">Description:</label><br />
+        <input ng-model="event.description" type="text" id="description"><br />
+    </div>
+
+    <div class="formitem">
+        <label for="targetGroup">Target group:</label><br />
+        <input ng-model="event.targetGroup" type="text" id="targetGroup"><br />
+    </div>
+
+    <div class="formitem">
+        <label for="contributionsDescription">Contributions description:</label><br />
+        <input ng-model="event.contributionsDescription" type="text" id="contributionsDescription"><br />
+    </div>
+
+    <div class="formitem">
+        <label for="locationname">Location name:</label><br />
+        <input ng-model="event.location.name" type="text" id="locationname" required><br />
+    </div>
+
+    <div class="formitem">
+        <label for="locationstreet">Location street:</label><br />
+        <input ng-model="event.location.street" type="text" id="locationstreet"><br />
+    </div>
+
+    <div class="formitem">
+        <label for="locationplz">Location PLZ:</label><br />
+        <input ng-model="event.location.plz" type="number" id="locationplz"><br />
+    </div>
+
+    <div class="formitem">
+        <label for="locationcity">Location city:</label><br />
+        <input ng-model="event.location.city" type="text" id="locationcity"><br />
+    </div>
+
+    <div class="formitem">
+        <label for="eventbegin">Event begin:</label><br />
+        <input ng-model="event.times.begin" type="datetime-local" id="eventbegin" required><br />
+    </div>
+
+    <div class="formitem">
+        <label for="eventend">Event end:</label><br />
+        <input ng-model="event.times.end" type="datetime-local" id="eventend" required><br />
+    </div>
+
+    <div class="formitem">
+        <button type="submit" ng-click="update()">Save</button>
+    </div>
+</form>

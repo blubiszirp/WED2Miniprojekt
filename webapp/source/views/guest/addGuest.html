@@ -2,13 +2,24 @@
     <h1>Add Guest</h1>
     <a class="headerlink" href="#/events/{{eventId}}/guests">back to Guests</a>
 </div>
-<br>
 
-<label for="name">Name:</label><br>
-<input ng-model="guest.name" type="text" id="name"></br>
-<label  for="contribution">Contribution:</label><br>
-<input  ng-model="guest.contribution" type="text" id="contribution"></br>
-<label  for="comment">Comment:</label><br>
-<input  ng-model="guest.comment" type="text" id="comment"></br>
-<br>
-<button type="button" ng-click="addGuest()">Create new Guest</button>
+<form>
+    <div class="formitem">
+        <label for="name">Name:</label><br>
+        <input ng-model="guest.name" type="text" id="name" required><br />
+    </div>
+
+    <div class="formitem">
+        <label for="contribution">Contribution:</label><br />
+        <input ng-model="guest.contribution" type="text" id="contribution"><br />
+    </div>
+
+    <div class="formitem">
+        <label for="comment">Comment:</label><br />
+        <input ng-model="guest.comment" type="text" id="comment"><br />
+    </div>
+
+    <div class="formitem">
+        <button type="button" ng-click="addGuest()">Create new Guest</button>
+    </div>
+</form>

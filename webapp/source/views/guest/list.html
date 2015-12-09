@@ -8,7 +8,7 @@
 </div>
 <ul>
     <li data-ng-repeat="guest in guests | filter:{canceled:'false'}" class="guestlistelement">
-        <p><b>{{ guest.name }}</b></p>
+        <p class="guestname">{{ guest.name }}</p>
         <p>Contribution: <i>{{ guest.contribution }}</i></p>
         <p><i>{{ guest.comment }}</i></p>
         <a href="#/events/{{ eventId }}/editGuest/{{ guest.id }}">edit</a>

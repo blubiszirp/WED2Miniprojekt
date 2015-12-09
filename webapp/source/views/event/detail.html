@@ -1,21 +1,43 @@
 <div class="header">
-    <h1>{{event.name}} ({{(event.guests | filter:{canceled:'false'}).length}} Guests)</h1>
+    <h1>{{event.name}}</h1>
     <div class="linkcontainer">
         <a class="headerlink" href="#/events">back to overview</a>
         <a class="headerlink" href="#/events/{{event.id}}/guests">show guests</a>
         <a class="headerlink" href="#/editEvent/{{event.id}}">edit</a>
     </div>
 </div>
-<h3>Description:</h3>
-<p>{{ event.description }}</p>
-<h3>Target Group:</h3>
-<p>{{ event.targetGroup }}</p>
-<h3>Contributions Description:</h3>
-<p>{{ event.contributionsDescription }}</p>
-<h3>Location:</h3>
-<p>{{ event.location.name }}</p>
-<p>{{ event.location.street }}</p>
-<p>{{ event.location.plz }}, {{ event.location.city }}</p>
-<h3>Time:</h3>
-<p><i>Starts</i>: {{ event.times.begin | date: 'MMM d, y   HH:mm:ss'}}</p>
-<p><i>Ends</i>: {{ event.times.end | date: 'MMM d, y   HH:mm:ss' }}</p>
+
+<div class="eventdetails">
+    <div class="eventdetailitem">
+        <h3>Description:</h3>
+        <p>{{ event.description }}</p>
+    </div>
+
+    <div class="eventdetailitem">
+        <h3>Target Group:</h3>
+        <p>{{ event.targetGroup }}</p>
+    </div>
+
+    <div class="eventdetailitem">
+        <h3>Contributions Description:</h3>
+        <p>{{ event.contributionsDescription }}</p>
+    </div>
+
+    <div class="eventdetailitem">
+        <h3>Location:</h3>
+        <p>{{ event.location.name }}</p>
+        <p>{{ event.location.street }}</p>
+        <p>{{ event.location.plz }}, {{ event.location.city }}</p>
+    </div>
+
+    <div class="eventdetailitem">
+        <h3>Time:</h3>
+        <p><i>Starts</i>: {{ event.times.begin | date: 'MMM d, y   HH:mm:ss'}}</p>
+        <p><i>Ends</i>: {{ event.times.end | date: 'MMM d, y   HH:mm:ss' }}</p>
+    </div>
+
+    <div class="eventdetailitem">
+        <h3>Number of guests:</h3>
+        <p>{{(event.guests | filter: {canceled: 'false'}).length}}</p>
+    </div>
+</div>

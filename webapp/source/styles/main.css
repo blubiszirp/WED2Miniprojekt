@@ -2,6 +2,40 @@ body {
 
 }
 
+/**
+ * Text styles
+ */
+p{
+    margin-bottom: 0;
+    margin-top: 0
+}
+
+h1 {
+    color: white;
+    padding-left: 0.5rem;
+}
+
+h3 {
+    margin-bottom: 0.5rem;
+    text-decoration: underline;
+}
+
+label{
+    font-weight: 500;
+    font-style: italic;
+}
+
+/**
+ * Lists
+ */
+ul{
+    list-style-type: none;
+    padding-left: 0rem;
+}
+
+/**
+ * Header
+ */
 .header{
     display: -webkit-flex;
     display: flex;
@@ -15,19 +49,9 @@ body {
     display: flex;
 }
 
-button.headerbutton{
+.headerbutton{
     width: 5em;
     height: 5em;
-}
-
-h1 {
-    color: white;
-    padding-left: 0.5rem;
-}
-
-h3 {
-    margin-bottom: 0.5rem;
-    text-decoration: underline;
 }
 
 .headerlink{
@@ -35,11 +59,9 @@ h3 {
     padding: 0.5rem
 }
 
-ul{
-    list-style-type: none;
-    padding-left: 0rem;
-}
-
+/**
+ * Event / Guest lists
+ */
 .eventlistelement{
     cursor: pointer;
     margin: 0.5rem;
@@ -47,28 +69,66 @@ ul{
     border-style: groove
 }
 
+.eventlistelement > p {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.eventname {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 .guestlistelement{
-    margin: 0.5rem;
-    padding: 0.2rem;
+    margin: 0.5rem 0;
+    padding: 0.2rem 0;
     border-style: groove
 }
 
-.eventlistelement:hover>p{
+.guestlistelement > p {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.guestname {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.eventlistelement:hover > p{
     color: #aaaaaa;
 }
 
-
-p{
-    margin-bottom: 0;
-    margin-top: 0
+/**
+ * Event detail
+ */
+.eventdetails {
+    text-align: center;
 }
 
-label{
-    font-weight: 500;
-    font-style: italic;
+.eventdetailitem {
+    padding: 0.2rem 0;
 }
 
-input{
-    width : 200px;
+/**
+ * Forms
+ */
+form {
+    padding: 1rem;
+}
+
+.formitem {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.formitem > input {
+    width: 100%;
     margin-bottom: 0.5rem;
+}
+
+.formitem > button {
+    width: 100%;
 }

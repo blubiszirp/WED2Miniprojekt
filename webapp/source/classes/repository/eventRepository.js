@@ -5,7 +5,8 @@ define(['app/models/event'], function(Event) {
         this.urls = {
            all: '/api/events',
            get: '/api/events/{eventId}',
-           add: '/api/events'
+           add: '/api/events',
+           update: '/api/events'
         }
 
         /**
@@ -43,7 +44,7 @@ define(['app/models/event'], function(Event) {
         }
 
         this.update = function(event,successCallback){
-            $http.post(this.urls.get.replace('{eventId}',event.id),event)
+            $http.post(this.urls.update.replace('{eventId}',event.id),event)
                 .success(function(){
                    successCallback();
                 });

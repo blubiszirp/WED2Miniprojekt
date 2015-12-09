@@ -8,7 +8,8 @@ define(['app/models/guest'], function(Guest) {
         this.urls = {
             all: '/api/events/{eventId}/guests',
             get: '/api/events/{eventId}/guests/{guestId}',
-            add: '/api/events/{eventId}/guests'
+            add: '/api/events/{eventId}/guests',
+            update: '/api/events/{eventId}/guests'
         }
 
         /**

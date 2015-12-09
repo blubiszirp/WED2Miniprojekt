@@ -17,5 +17,5 @@
 <p>{{ event.location.street }}</p>
 <p>{{ event.location.plz }}, {{ event.location.city }}</p>
 <h3>Time:</h3>
-<p><i>starts</i>: {{ event.times.begin }}</p>
-<p><i>ends</i>: {{ event.times.end }}</p>
+<p><i>Starts</i>: {{ event.times.begin | date: 'MMM d, y   HH:mm:ss'}}</p>
+<p><i>Ends</i>: {{ event.times.end | date: 'MMM d, y   HH:mm:ss' }}</p>

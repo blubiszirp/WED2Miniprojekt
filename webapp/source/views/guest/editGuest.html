@@ -1,14 +1,15 @@
 <div class="header">
     <h1>Edit Guest - {{guest.name}}</h1>
-    <a class="headerlink" href="#/events/{{eventId}}/guests">back to guest list</a>
+    <a class="headerlink" href="#/events/{{eventId}}/guests">back to guestlist</a>
 </div>
 
 
-<label for="name">Name</label>
+<label for="name">Name:</label><br>
 <input ng-model="guest.name" type="text" id="name"></br>
-<label  for="contribution">Contribution</label>
+<label  for="contribution">Contribution:</label><br>
 <input  ng-model="guest.contribution" type="text" id="contribution"></br>
-<label  for="comment">Comment</label>
+<label  for="comment">Comment:</label><br>
 <input  ng-model="guest.comment" type="text" id="comment"></br>
+<br>
 <button type="button" ng-click="cancel()">cancel</button>
 <button type="button" ng-click="update()">save</button>

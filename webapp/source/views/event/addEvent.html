@@ -4,24 +4,26 @@
 </div>
 </br>
 
-<label for="name">Eventname</label>
+<label for="name">Name:</label><br>
 <input ng-model="event.name" type="text" id="name"></br>
-<label  for="description">Description</label>
+<label  for="description">Description:</label><br>
 <input  ng-model="event.description" type="text" id="description"></br>
-<label for="targetGroup">Target Group</label>
+<label for="targetGroup">Target group:</label><br>
 <input  ng-model="event.targetGroup" type="text" id="targetGroup"></br>
-<label for="contributionsDescription">Contributions Description</label>
+<label for="contributionsDescription">Contributions description:</label><br>
 <input  ng-model="event.contributionsDescription" type="text" id="contributionsDescription"></br>
-<label  for="locationname">Location name</label>
+<label  for="locationname">Location name:</label><br>
 <input  ng-model="event.location.name" type="text" id="locationname"></br>
-<label for="locationstreet">Location street</label>
+<label for="locationstreet">Location street:</label><br>
 <input ng-model="event.location.street" type="text" id="locationstreet"></br>
-<label for="locationplz">Location plz</label>
+<label for="locationplz">Location PLZ:</label><br>
 <input ng-model="event.location.plz" type="text" id="locationplz"></br>
-<label for="locationcity">Location city</label>
+<label for="locationcity">Location city:</label><br>
 <input ng-model="event.location.city" type="text" id="locationcity"></br>
-<label for="eventbegin">Event begin</label>
+<label for="eventbegin">Event begin:</label><br>
 <input ng-model="event.times.begin" type="datetime-local" id="eventbegin"></br>
-<label for="eventend">Event end</label>
+<label for="eventend">Event end:</label><br>
 <input ng-model="event.times.end" type="datetime-local" id="eventend">
+<br>
+<br>
 <button type="button" ng-click="addEvent()">Create new Event</button>

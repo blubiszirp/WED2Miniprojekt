@@ -1,14 +1,16 @@
 <div class="header">
     <h1>Guests</h1>
     <!--<button class="headerbutton" type="button" ng-click="addEvent()">+</button>-->
-    <a class="headerlink" href="#/events/{{ eventId }}/addGuest">[+]</a>
-    <a class="headerlink" href="#/events/{{ eventId }}">back to event</a>
+    <div class="linkcontainer">
+        <a class="headerlink" href="#/events/{{ eventId }}">back to event</a>
+        <a class="headerlink" href="#/events/{{ eventId }}/addGuest">add guest</a>
+    </div>
 </div>
 <ul>
-    <li data-ng-repeat="guest in guests | filter:{canceled:'false'}">
-        <p><i>name</i>: {{ guest.name }}</p>
-        <p><i>contribution</i>: {{ guest.contribution }}</p>
-        <p><i>comment</i>: {{ guest.comment }}</p>
+    <li data-ng-repeat="guest in guests | filter:{canceled:'false'}" class="guestlistelement">
+        <p><b>{{ guest.name }}</b></p>
+        <p>Contribution: <i>{{ guest.contribution }}</i></p>
+        <p><i>{{ guest.comment }}</i></p>
         <a href="#/events/{{ eventId }}/editGuest/{{ guest.id }}">edit</a>
     </li>
 </ul>

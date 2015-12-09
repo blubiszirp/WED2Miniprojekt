@@ -9,7 +9,7 @@ define(['app/models/guest'], function(Guest) {
             all: '/api/events/{eventId}/guests',
             get: '/api/events/{eventId}/guests/{guestId}',
             add: '/api/events/{eventId}/guests',
-            update: '/api/events/{eventId}/guests'
+            update: '/api/events/{eventId}/guests/{guestId}'
         }
 
         /**
@@ -45,7 +45,7 @@ define(['app/models/guest'], function(Guest) {
         }
 
         this.update = function(eventId,guest,successCallback){
-            $http.post(this.urls.get.replace('{eventId}',eventId).replace('{guestId}',guest.id),guest)
+            $http.post(this.urls.update.replace('{eventId}',eventId).replace('{guestId}',guest.id),guest)
                 .success(function(){
                     successCallback(true);
                 });

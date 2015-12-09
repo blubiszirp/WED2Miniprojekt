@@ -12,7 +12,7 @@ define(['app/models/guest',
 
                 guestRepository = new GuestRepository($http);
                 //guest = EventFactory.createTestEvent();
-                guest = new Guest('Hans','Nothing','to late',false,1);
+                guest = new Guest('Hans','Nothing','to late',false);
 
                 $httpBackend.when('GET', guestRepository.urls.all.replace('{eventId}', '1')).respond({
                     guests: [{
@@ -24,7 +24,9 @@ define(['app/models/guest',
                     }]
                 });
 
-                $httpBackend.when('GET', guestRepository.urls.get.replace('{eventId}', '1').replace('{guestId}', '1')).respond(guest);
+                $httpBackend.when('GET', guestRepository.urls.get.replace('{eventId}', '1').replace('{guestId}', guest.id)).respond(guest);
+                $httpBackend.when('POST', guestRepository.urls.add.replace('{eventId}', '1')).respond();
+                $httpBackend.when('POST', guestRepository.urls.update.replace('{eventId}', '1').replace('{guestId}', guest.id)).respond();
             }));
 
             // Check if there are no hanging requests
@@ -82,10 +84,23 @@ define(['app/models/guest',
             });
 
             describe('add()', function(){
-                //TODO
+                it('add an guest', function() {
+                    var guestToAdd = guest;
+                    $httpBackend.expectPOST(guestRepository.urls.add.replace('{eventId}','1'),guestToAdd).respond(200, '');
+                    guestRepository.add(1,guestToAdd,function(){});
+                    $httpBackend.flush();
+                });
             });
             describe('update()', function(){
-                //TODO
+                it('update an guest', function() {
+                    var guestToUpdate = null;
+                    guestRepository.get(1,guest.id, function(guest) { guestToUpdate = guest; });
+                    $httpBackend.flush();
+                    guestToUpdate.name = "Max";
+                    $httpBackend.expectPOST(guestRepository.urls.update.replace('{eventId}','1').replace('{guestId}',guestToUpdate.id),guestToUpdate).respond(200, '');
+                    guestRepository.update(1,guestToUpdate,function(){});
+                    $httpBackend.flush();
+                });
             });
 
         });

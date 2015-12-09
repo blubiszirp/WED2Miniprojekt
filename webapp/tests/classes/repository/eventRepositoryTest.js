@@ -28,8 +28,8 @@ define(['app/models/event',
 				});
 
 				$httpBackend.when('GET', eventRepository.urls.get.replace('{eventId}', event.id)).respond(event);
-
 				$httpBackend.when('POST', eventRepository.urls.add).respond();
+				$httpBackend.when('POST', eventRepository.urls.update.replace('{eventId}', event.id)).respond();
 			}));
 
 			// Check if there are no hanging requests
@@ -90,117 +90,22 @@ define(['app/models/event',
 			describe('add()', function(){
 				it('add an event', function() {
 					var event = EventFactory.createTestEvent();
+					$httpBackend.expectPOST(eventRepository.urls.add,event).respond(200, '');
 					eventRepository.add(event,function(){});
 					$httpBackend.flush();
-
-					$httpBackend.expectPOST('/api/events','hans').respond(201, '');
 				});
-				//TODO
 			});
 			describe('update()', function(){
-				//TODO
+				it('update an event', function() {
+					var eventToUpdate = null;
+					eventRepository.get(event.id, function(event) { eventToUpdate = event; });
+					$httpBackend.flush();
+					eventToUpdate.name = "PARTY PARTY";
+					$httpBackend.expectPOST(eventRepository.urls.update.replace('{eventId}',eventToUpdate.id),eventToUpdate).respond(200, '');
+					eventRepository.update(eventToUpdate,function(){});
+					$httpBackend.flush();
+				});
 			});
 
-			/*describe('add()', function() {
-			 it('inserts element', function() {
-			 var oldSize = eventRepository.events.length();
-			 eventRepository.events.add(event);
-			 var newSize = eventRepository.events.length();
-			 expect(newSize).toBe(oldSize + 1);
-			 });
-
-			 describe('same element again', function() {
-			 var returnValue;
-			 var oldSize;
-
-			 beforeEach(function() {
-			 eventRepository.events.add(event);
-
-			 oldSize = eventRepository.events.length();
-			 returnValue = eventRepository.events.add(event);
-			 });
-
-			 it('doesn\'t affect repository size', function() {
-			 var newSize = eventRepository.events.length();
-			 expect(newSize).toBe(oldSize);
-			 });
-
-			 it('returns false', function() {
-			 expect(returnValue).toBe(false);
-			 });
-			 });
-			 });*/
-
-			/*
-			 describe('get()', function() {
-			 beforeEach(function() {
-			 var ret = eventRepository.events.add(event);
-			 });
-
-			 describe('by object id', function() {
-			 it('returns the object', function() {
-			 var returnedEvent = eventRepository.events.get(event.id);
-
-			 expect(returnedEvent).toEqual(event);
-			 });
-			 });
-
-			 describe('by inexistent object id', function() {
-			 it('returns null', function() {
-			 var returnedEvent = eventRepository.events.get(0);
-
-			 expect(returnedEvent).toBeNull();
-			 });
-			 });
-			 });
-
-			 describe('all()', function() {
-			 it('returns an Array', function() {
-			 var eventList = eventRepository.events.all();
-
-			 expect(eventList).toEqual(jasmine.any(Array));
-			 });
-			 it('returns real javascript objects', function() {
-			 $httpBackend.expectGET(eventRepository.urls.all);
-			 var events = null;
-			 eventRepository.all(function(eventList) {
-			 events = eventList;
-			 });
-			 $httpBackend.flush();
-			 expect(events[0]).toEqual(jasmine.any(Event));
-			 expect(events[1]).toEqual(jasmine.any(Event));
-			 });
-			 });
-
-			 describe('add()', function() {
-			 it('inserts element', function() {
-			 var oldSize = eventRepository.events.length();
-			 eventRepository.events.add(event);
-			 var newSize = eventRepository.events.length();
-			 expect(newSize).toBe(oldSize + 1);
-			 });
-
-			 describe('same element again', function() {
-			 var returnValue;
-			 var oldSize;
-
-			 beforeEach(function() {
-			 eventRepository.events.add(event);
-
-			 oldSize = eventRepository.events.length();
-			 returnValue = eventRepository.events.add(event);
-			 });
-
-			 it('doesn\'t affect repository size', function() {
-			 var newSize = eventRepository.events.length();
-			 expect(newSize).toBe(oldSize);
-			 });
-
-			 it('returns false', function() {
-			 expect(returnValue).toBe(false);
-			 });
-			 });
-			 });
-			 */
 		});
 	});

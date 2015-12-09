@@ -89,6 +89,7 @@ define(['app/models/guest',
                     $httpBackend.expectPOST(guestRepository.urls.add.replace('{eventId}','1'),guestToAdd).respond(200, '');
                     guestRepository.add(1,guestToAdd,function(){});
                     $httpBackend.flush();
+                    expect(true).toBe(true);
                 });
             });
             describe('update()', function(){
@@ -100,6 +101,7 @@ define(['app/models/guest',
                     $httpBackend.expectPOST(guestRepository.urls.update.replace('{eventId}','1').replace('{guestId}',guestToUpdate.id),guestToUpdate).respond(200, '');
                     guestRepository.update(1,guestToUpdate,function(){});
                     $httpBackend.flush();
+                    expect(true).toBe(true);
                 });
             });
 

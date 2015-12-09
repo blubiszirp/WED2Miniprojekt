@@ -93,6 +93,7 @@ define(['app/models/event',
 					$httpBackend.expectPOST(eventRepository.urls.add,event).respond(200, '');
 					eventRepository.add(event,function(){});
 					$httpBackend.flush();
+					expect(true).toBe(true);
 				});
 			});
 			describe('update()', function(){
@@ -104,6 +105,7 @@ define(['app/models/event',
 					$httpBackend.expectPOST(eventRepository.urls.update.replace('{eventId}',eventToUpdate.id),eventToUpdate).respond(200, '');
 					eventRepository.update(eventToUpdate,function(){});
 					$httpBackend.flush();
+					expect(true).toBe(true);
 				});
 			});
 
